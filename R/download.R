@@ -1,6 +1,6 @@
-#' Download And Delete WordNet Database
+#' Download And Delete WordNet SQL Database
 #'
-#' To download the WordNet 3.1 data as a sqlite database. It runs automatically in an interactive R session. The size of the database is around 500MB. Please make sure you agree with the WordNet License.
+#' To download the WordNet 3.1 data as a sqlite database. It runs only in an interactive R session. The size of the database is around 500MB. Please make sure you agree with the WordNet License.
 #' @param debug a flag for debugging. You should keep it FALSE. (Try at your own risk!)
 #' @return TRUE if the database is found. FALSE if there is no database and it is not running in an interactive R session.
 #' @export
@@ -10,15 +10,15 @@ download_wordnet <- function(debug = FALSE) {
         return(invisible(TRUE))
     }
     if (!debug) {
-        message("DB doesn't exist. Attempting to download it from the Internet.")
-        message("Make sure you agree with the WordNet License.")
-        message("https://wordnet.princeton.edu/license-and-commercial-use")
+        packageStartupMessage("WordNet SQL DB doesn't exist. Attempting to download it from the Internet.")
+        packageStartupMessage("Make sure you agree with the WordNet License.")
+        packageStartupMessage("https://wordnet.princeton.edu/license-and-commercial-use")
     }
-    if (interactive() & !debug) {
-        message("Press ENTER to agree")
+    if (interactive() && !debug) {
+        packageStartupMessage("Press ENTER to agree")
         rubbish <- readline()
-    } else if (!interactive() & !debug) {
-        message("Run `download_wordnet()` interactively to download the WordNet database.")
+    } else if (!interactive() && !debug) {
+        packageStartupMessage("Run `download_wordnet()` interactively to download the WordNet database.")
         return(invisible(FALSE))
     }
     temploc <- tempfile("sqlite-31.db.zip")
@@ -40,7 +40,7 @@ delete_wordnet <- function() {
 }
 
 .create_con <- function() {
-    download_wordnet()
+    ##download_wordnet()
     if (file.exists(system.file("sqlite-31.db", package = "sehrnett"))) {
         return(DBI::dbConnect(RSQLite::SQLite(), system.file("sqlite-31.db", package = "sehrnett")))
     }

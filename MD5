@@ -1,11 +1,11 @@
-2d6cc49c31912a8fe3039ee4fd67da5c *DESCRIPTION
+5e0b621171817ef59e2a75f059a00497 *DESCRIPTION
 38086f4e34a5a6639fc9a14604a7b8a6 *NAMESPACE
-9b32bde5711aab90841392a39de61a29 *R/download.R
+20e90cffacaecd85d081cb284807c921 *R/download.R
 aa8eb7ed33bff9ed0b78c3bb36093a8f *R/morphy.R
-bb3cbaf62a6258de98d3a363d2928402 *R/sehr.R
+1b3b706fe8e2efa1920d5ff89f501350 *R/sehr.R
 b56ff2b193ecba52f9ec7f3b10cca008 *R/utils-pipe.R
-6b143759c279e5dfbef98952d7907749 *README.md
-93698de03bcfec79ceaecf1afbeae0e7 *man/download_wordnet.Rd
+a7615418f768b53343075f20265df88e *README.md
+825768b97fa3d610a7303db55e16a0ac *man/download_wordnet.Rd
 5a3c8760acdb0655ddd2db1892c89888 *man/figures/sehrnett_logo.svg
 d8eb36b3e151646fcf87c1acebff37bb *man/get_lemmas.Rd
 bd0d56a83f616cb5821b970c55b27b07 *man/get_outdegrees.Rd

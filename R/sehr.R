@@ -2,7 +2,6 @@
 
 nett_con <- NULL
 .onLoad <- function(libname, pkgname) {
-    download_wordnet()
     nett_con <<- .create_con()
 }
 
@@ -18,6 +17,12 @@ nett_con <- NULL
 }
 
 .fetch_q <- function(q, params) {
+    if (is.null(nett_con)) {
+        stop("WordNet SQL DB doesn't exist.
+Run `download_wordnet()` interactively to download the WordNet database.
+And reload the package.
+(Note: WordNet SQL DB is not the same as the WordNet installed on your system.)", call. = FALSE)
+    }
     res <- DBI::dbSendQuery(nett_con, q)
     DBI::dbBind(res, params)
     output <- tibble::as_tibble(DBI::dbFetch(res))
